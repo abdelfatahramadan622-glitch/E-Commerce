@@ -1,0 +1,39 @@
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+.stat-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+.stat-icon {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* تأثير الوميض للعلامة الخضراء (Live Badge) */
+.blinking {
+  animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.activity-item:last-child {
+  border-bottom: none !important;
+}
+
+.fs-7 {
+  font-size: 0.8rem;
+}

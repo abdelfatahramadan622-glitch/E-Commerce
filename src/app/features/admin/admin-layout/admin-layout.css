@@ -1,0 +1,20 @@
+.admin-wrapper {
+  min-height: calc(100vh - 60px);
+  display: flex;
+}
+
+.admin-content {
+  background-color: #f8f9fa !important;
+  overflow-y: auto;
+}
+
+/* ==================== ضبط المحتوى على الموبايل ==================== */
+@media (max-width: 768px) {
+  .admin-wrapper {
+    flex-direction: column !important; /* يخلي الـ Sidebar فوق والمحتوى تحته */
+  }
+  
+  .admin-content {
+    padding: 15px !important; /* تقليل البادينج على الشاشات الصغيرة */
+  }
+}

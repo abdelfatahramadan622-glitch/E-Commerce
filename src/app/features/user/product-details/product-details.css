@@ -1,0 +1,39 @@
+.product-img-wrapper {
+  height: 400px;
+  overflow: hidden; /* منع الصورة المكبرة من الخروج بره حدود الكارت */
+  border: 1px solid #e9ecef;
+  background-color: #ffffff; /* خلفية بيضاء ثابتة خلف الصورة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-img {
+  max-height: 100%;
+  width: 100%;
+  object-fit: contain;
+  /* جعل التكبير وتغيير المحور يحصل بنعومة شديدة مع حركة الماوس */
+  transition: transform 0.1s ease-out, transform-origin 0.1s ease-out;
+  /* منع الصورة من لقط أحداث الماوس ليركز بالكامل على الـ Wrapper */
+  pointer-events: none; 
+}
+
+/* 💡 ملحوظة: لغينا الـ :hover القديم (scale(1.03)) 
+   لأن الـ TypeScript دلوقتي هو اللي بيتحكم في الـ Scale (بمقدار 1.8) وبشكل ديناميكي مع حركة إيدك */
+
+.lh-lg {
+  line-height: 1.8 !important;
+}
+
+.fs-7 {
+  font-size: 0.85rem;
+}
+
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+/* تأثير ظل خفيف متناسق مع اللون الأصفر للأزرار */
+.shadow-warning-sm {
+  box-shadow: 0 4px 14px rgba(255, 193, 7, 0.3) !important;
+}

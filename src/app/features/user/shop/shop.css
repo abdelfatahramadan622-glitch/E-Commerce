@@ -1,0 +1,33 @@
+.filter-card {
+  border-radius: 14px;
+  position: sticky;
+  top: 90px; /* يثبت الفلتر مكانه أثناء السكرول لو الصفحة طويلة */
+}
+
+.filter-btn {
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border-width: 1px;
+}
+
+.filter-btn:hover:not(.btn-warning) {
+  background-color: #e9ecef;
+  color: #000000;
+}
+
+/* تخصيص شكل شريط السعر Range */
+.custom-range::-webkit-slider-thumb {
+  background: #ffc107;
+}
+
+.custom-range::-moz-range-thumb {
+  background: #ffc107;
+}
+
+.custom-range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+
+.bg-white {
+  background-color: #ffffff !important;
+}

@@ -1,0 +1,59 @@
+<div class="container-fluid py-2 text-start">
+
+    <div class="mb-4">
+        <h2 class="fw-bold text-dark m-0">إدارة طلبات الفواتير</h2>
+        <p class="text-muted small mb-0">تابع طلبات العملاء وتتبع حالات الشحن والتوصيل أولاً بأول.</p>
+    </div>
+
+    <div class="card border-0 shadow-sm rounded-3 overflow-hidden bg-white">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 text-start">
+                <thead class="table-dark">
+                    <tr>
+                        <th class="ps-4">رقم الطلب</th>
+                        <th>اسم العميل</th>
+                        <th>رقم الهاتف</th>
+                        <th>التاريخ</th>
+                        <th>الإجمالي</th>
+                        <th>الحالة</th>
+                        <th class="text-center pe-4">تغيير الحالة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (order of orders(); track order.id) {
+                    <tr>
+                        <td class="ps-4 fw-bold text-secondary">{{ order.id }}</td>
+                        <td class="fw-bold text-dark">{{ order.customerName }}</td>
+                        <td>{{ order.phone }}</td>
+                        <td class="text-muted small">{{ order.date | date: 'fullDate' }}</td>
+                        <td class="fw-bold text-success">{{ order.total }} ج.م</td>
+                        <td>
+                            @if (order.status === 'Pending') {
+                            <span class="badge bg-warning text-dark px-2.5 py-1.5 rounded-pill">قيد الانتظار</span>
+                            } @else if (order.status === 'Shipped') {
+                            <span class="badge bg-info text-white px-2.5 py-1.5 rounded-pill">تم الشحن</span>
+                            } @else {
+                            <span class="badge bg-success text-white px-2.5 py-1.5 rounded-pill">تم التوصيل</span>
+                            }
+                        </td>
+                        <td class="text-center pe-4">
+                            <select class="form-select form-select-sm d-inline-block w-auto border-secondary-subtle"
+                                [value]="order.status" #statusSelect
+                                (change)="updateStatus(order.id, $any(statusSelect.value))">
+                                <option value="Pending">قيد الانتظار</option>
+                                <option value="Shipped">شحن الطلب</option>
+                                <option value="Delivered">تم التوصيل</option>
+                            </select>
+                        </td>
+                    </tr>
+                    } @empty {
+                    <tr>
+                        <td colspan="7" class="text-center py-5 text-muted">لا توجد طلبات مسجلة حتى الآن.</td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

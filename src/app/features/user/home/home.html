@@ -1,0 +1,56 @@
+<section class="hero-section bg-dark text-white d-flex align-items-center position-relative overflow-hidden mb-5">
+  <div class="container position-relative z-1 text-center text-md-end py-5">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <span class="badge bg-warning text-dark mb-3 fw-bold px-3 py-2 text-uppercase tracking-wider">تخفيضات الموسم الحصرية</span>
+        <h1 class="display-4 fw-bold mb-3 header-title">اكتشف جيلًا جديدًا من <span class="text-warning">التسوق الرقمي</span></h1>
+        <p class="lead text-muted-white mb-4">تصفح أحدث الأجهزة والملابس بأعلى جودة وأفضل أسعار في السوق مع شحن سريع وضمان حقيقي.</p>
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3">
+          <a routerLink="/shop" class="btn btn-warning btn-lg px-4 fw-bold shadow-sm">تسوق الآن <i class="bi bi-arrow-left ms-2"></i></a>
+          <a href="#featured-products" class="btn btn-outline-light btn-lg px-4">عرض المنتجات</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bg-overlay"></div>
+</section>
+
+<div class="container mb-5">
+  <section class="mb-5 text-end">
+    <h3 class="fw-bold mb-4 position-relative section-title">تصفح حسب الفئات</h3>
+    <div class="row g-3">
+      @for (category of categories(); track category) {
+        @if (category !== 'الكل') {
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="category-card p-4 text-center border shadow-sm" 
+                 [routerLink]="['/shop']" 
+                 [queryParams]="{ category: category }"
+                 style="cursor: pointer;">
+              <i class="bi bi-tags text-warning fs-3 mb-2 d-block"></i>
+              <span class="fw-bold text-dark">{{ category }}</span>
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </section>
+
+  <section id="featured-products" class="text-end">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 class="fw-bold position-relative section-title m-0">المنتجات المميزة</h3>
+      <a routerLink="/shop" class="text-warning fw-bold text-decoration-none hover-link">عرض الكل <i class="bi bi-chevron-left small"></i></a>
+    </div>
+
+    <div class="row g-4">
+      @for (prod of products(); track prod.id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <app-product-card [product]="prod"></app-product-card>
+        </div>
+      } @empty {
+        <div class="col-12 text-center py-5">
+          <p class="text-muted">لا توجد منتجات معروضة حالياً.</p>
+        </div>
+      }
+    </div>
+  </section>
+</div>

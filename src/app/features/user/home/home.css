@@ -1,0 +1,54 @@
+/* Hero Section CSS */
+.hero-section {
+  min-height: 450px;
+  background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(21, 25, 34, 0.95) 0%, rgba(21, 25, 34, 0.6) 100%);
+  z-index: 0;
+}
+
+.z-1 { z-index: 1; }
+
+.text-muted-white {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* العناوين المخصصة */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* المسافة تحت النص */
+  width: 50px;  /* طول الخط الأصفر */
+  height: 3px;  /* سمك الخط */
+  background-color: #ffc107; /* اللون الأصفر الداكن المتناسق مع الهوية */
+  right: 0;     /* يجعل الخط يبدأ من اليمين تماماً مع بداية الكلمة العربية */
+  left: auto;   /* إلغاء أي قيمة قديمة للـ left كانت بتسحب الخط لليسار */
+}
+
+/* كروت الأقسام */
+.category-card {
+  background: #ffffff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  border-color: #ffc107 !important;
+  background-color: #fffdf5;
+  transform: translateY(-3px);
+}
+
+.hover-link:hover {
+  color: #ffb300 !important;
+  text-decoration: underline !important;
+}

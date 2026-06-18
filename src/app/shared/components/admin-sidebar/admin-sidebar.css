@@ -1,0 +1,59 @@
+/* التصميم الأساسي للشاشات الكبيرة (الكمبيوتر) */
+.admin-sidebar {
+  width: 260px;
+  min-height: calc(100vh - 60px);
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.nav-link:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffc107 !important;
+}
+
+.nav-link.active {
+  background-color: #ffc107 !important;
+  color: #212529 !important;
+  font-weight: bold;
+}
+
+/* ==================== سحر التجاوب على الموبايل (Media Query) ==================== */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    width: 100% !important; /* يأخذ عرض الشاشة بالكامل */
+    min-height: auto !important; /* يلغي الطول الكامل */
+    flex-direction: row !important; /* يقلب العناصر جنب بعض بدل تحت بعض */
+    flex-wrap: wrap;
+    padding: 10px !important;
+  }
+
+  /* إخفاء الهيدر بتاع "بوابة الأدمن" والـ الخط الفاصل على الموبايل لتوفير مساحة */
+  .admin-sidebar .border-bottom,
+  .admin-sidebar hr {
+    display: none !important;
+  }
+
+  /* جعل القائمة أفقية (Row) */
+  .admin-sidebar ul {
+    flex-direction: row !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: auto;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  /* تنسيق الأزرار لتناسب اللمس على الموبايل */
+  .nav-link {
+    padding: 8px 12px !important;
+    font-size: 0.85rem;
+  }
+  
+  .admin-sidebar .text-start {
+    width: auto;
+  }
+}

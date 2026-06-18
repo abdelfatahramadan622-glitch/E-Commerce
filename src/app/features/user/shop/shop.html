@@ -1,0 +1,72 @@
+<div class="container py-5 text-start">
+  <div class="row g-4">
+    
+    <div class="col-12 col-md-3">
+      <div class="card p-4 filter-card shadow-sm border-0 bg-light">
+        <h5 class="fw-bold mb-4 text-dark"><i class="bi bi-funnel-fill text-warning me-2"></i>تصفية المنتجات</h5>
+        
+        <div class="mb-4">
+          <label class="fw-bold text-secondary mb-2 d-block">الأقسام</label>
+          <div class="d-flex flex-column gap-2">
+            @for (cat of categories(); track cat) {
+              <button 
+                type="button" 
+                class="btn btn-sm text-start filter-btn px-3 py-2 rounded-3"
+                [class.btn-warning]="selectedCategory() === cat"
+                [class.btn-outline-dark]="selectedCategory() !== cat"
+                (click)="changeCategory(cat)">
+                {{ cat }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <hr class="text-muted">
+
+        <div class="mb-2">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <label class="fw-bold text-secondary">الحد الأقصى للسعر</label>
+            <span class="badge bg-dark fw-bold">{{ maxPrice() }} ج.م</span>
+          </div>
+          <input 
+            type="range" 
+            class="form-range custom-range" 
+            min="0" 
+            max="2000" 
+            step="50"
+            [value]="maxPrice()"
+            (input)="updatePriceFilter($event)">
+          <div class="d-flex justify-content-between text-muted small mt-1">
+            <span>0 ج.م</span>
+            <span>2000 +</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-12 col-md-9">
+      <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-3 shadow-sm border">
+        <p class="m-0 text-muted">تم العثور على: <span class="fw-bold text-dark">{{ filteredProducts().length }}</span> منتج</p>
+        <span class="small text-muted">تحديث فوري <i class="bi bi-lightning-charge-fill text-warning"></i></span>
+      </div>
+
+      <div class="row g-4">
+        @for (prod of filteredProducts(); track prod.id) {
+          <div class="col-12 col-sm-6 col-lg-4">
+            <app-product-card [product]="prod"></app-product-card>
+          </div>
+        } @empty {
+          <div class="col-12 text-center py-5">
+            <div class="p-5 bg-light rounded-3 shadow-sm">
+              <i class="bi bi-emoji-frown text-muted fs-1 mb-3 d-block"></i>
+              <h5 class="fw-bold text-secondary">عذراً، لم نجد أي منتجات!</h5>
+              <p class="text-muted small">جرب تغيير خيارات الفلترة أو رفع الحد الأقصى للسعر.</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>

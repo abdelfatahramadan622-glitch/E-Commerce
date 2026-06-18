@@ -1,0 +1,17 @@
+.nav-link {
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-link.active {
+  color: #ffc107 !important; /* اللون الأصفر الخاص بـ Bootstrap لقائمة الأكتيف */
+  border-bottom: 2px solid #ffc107;
+}
+
+@media (max-width: 991px) {
+  .nav-link.active {
+    border-bottom: none;
+    padding-left: 5px;
+    border-left: 3px solid #ffc107;
+  }
+}

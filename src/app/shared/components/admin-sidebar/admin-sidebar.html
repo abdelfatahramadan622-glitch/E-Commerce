@@ -1,0 +1,32 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark admin-sidebar h-100">
+  <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none border-bottom pb-3 w-100">
+    <i class="bi bi-shield-lock-fill text-warning fs-4 me-2"></i>
+    <span class="fs-5 fw-bold text-uppercase">بوابة الأدمن</span>
+  </div>
+  
+  <ul class="nav nav-pills flex-column mb-auto gap-2 mt-4 text-start">
+    <li class="nav-item">
+      <a routerLink="/admin/overview" routerLinkActive="active" class="nav-link text-white d-flex align-items-center gap-2">
+        <i class="bi bi-speedometer2"></i> <span class="d-none d-sm-inline">الإحصائيات</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/products" routerLinkActive="active" class="nav-link text-white d-flex align-items-center gap-2">
+        <i class="bi bi-box-seam"></i> <span class="d-none d-sm-inline">المنتجات</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/admin/orders" routerLinkActive="active" class="nav-link text-white d-flex align-items-center gap-2">
+        <i class="bi bi-receipt"></i> <span class="d-none d-sm-inline">الطلبات</span>
+      </a>
+    </li>
+  </ul>
+  
+  <hr>
+  
+  <div class="text-start m-md-0 mt-2">
+    <a routerLink="/" class="btn btn-outline-warning btn-sm d-flex align-items-center gap-1">
+      <i class="bi bi-box-arrow-left"></i> <span class="d-none d-md-inline">العودة للمتجر</span>
+    </a>
+  </div>
+</div>

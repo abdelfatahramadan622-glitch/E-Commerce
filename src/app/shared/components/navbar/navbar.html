@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+  <div class="container">
+    
+    <a class="navbar-brand fw-bold text-uppercase m-0" routerLink="/">
+      <i class="bi bi-shop me-2 text-warning"></i>E-Shop
+    </a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 d-flex flex-row gap-4">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">الرئيسية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">المنتجات</a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-3 ms-auto ms-lg-0">
+        <a routerLink="/admin" class="btn btn-outline-light btn-sm px-3 py-2 rounded-3 d-flex align-items-center gap-1">
+          <i class="bi bi-speedometer2"></i> لوحة التحكم
+        </a>
+        
+        <a routerLink="/cart" class="btn btn-warning position-relative px-3 py-2 rounded-3 d-flex align-items-center gap-2 shadow-sm">
+          <i class="bi bi-cart3"></i> العربة
+          @if (cartCount() > 0) {
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-7">
+              {{ cartCount() }}
+            </span>
+          }
+        </a>
+      </div>
+
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,23 @@
+.bg-white {
+  background-color: #ffffff !important;
+}
+
+.table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.form-select-sm {
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-select-sm:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+}
+
+.rounded-pill {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
